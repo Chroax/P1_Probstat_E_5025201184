@@ -258,3 +258,5 @@ Pengerjaan Praktikum - 1 Probabilitas dan Statistika
     # 6.C
     varians <- std.deviasi ** 2
     ``` 
+
+# TERIMA KASIH
