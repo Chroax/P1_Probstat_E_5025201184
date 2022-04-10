@@ -2,7 +2,7 @@ rm(list = ls())
 dev.off(dev.list()["RStudioGD"])
 cat("\014")  
 
-# 3.A
+# 6.A
 n <- 100
 m <- 50
 std.deviasi <- 8
@@ -18,9 +18,9 @@ z2 <- (x2 - m) / std.deviasi
 rnorm(n = 100, mean = m, sd = std.deviasi)
 plot(rnorm(n = 100, mean = m, sd = std.deviasi))
 
-# 3.B
+# 6.B
 hist(rnorm(n = 100, mean = m, sd = std.deviasi), xlab="x", ylab="y" ,breaks = 50,
      main = "5025201184_Cahyadi_Probstat_E_Histogram")
 
-# 3.C
+# 6.C
 varians <- std.deviasi ** 2
