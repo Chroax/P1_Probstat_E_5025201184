@@ -91,28 +91,87 @@ Untuk mendapatkan nilai rataan menggunakan formula banyak data dikali dengan pel
 ## Soal 3
 ![alt text](https://github.com/Chroax/P1_Probstat_E_5025201184/blob/main/soal3.PNG)
 ### 3.A
-
+    ```R
+    # 3.A
+    lamda = 4.5
+    nA = 6
+    peluang = dpois(nA, lamda)
+    ``` 
 ### 3.B
+    ```R
+    # 3.B
+    set.seed(2)
 
+    poisson_data  <- data.frame('data' = rpois(365, lamda))
+
+    poisson_data  %>% ggplot() +
+    geom_histogram(aes(x = data,
+                     y = stat(count / sum(count)),
+                     fill = data == nA),
+                     binwidth = 1,
+                     color = 'black',) +
+    scale_x_continuous(breaks = 0:10) + 
+    labs(x = 'Number born per period',
+         y = 'Proportion',
+         title = '365 simulated births with Poisson Distribution (lambda = 4.5)') +
+    theme_bw()
+    ``` 
 ### 3.C
 
 ### 3.D
-
+    ```R
+    # 3.D
+    rataan = varian = lamda
+    ``` 
 ## Soal 4
 ![alt text](https://github.com/Chroax/P1_Probstat_E_5025201184/blob/main/soal4.PNG)
 ### 4.A
-
+    ```R
+    # 4.A
+    x = 2
+    df = 10
+    density = dchisq(x, df, ncp = 0, log = FALSE)
+    ``` 
 ### 4.B
+    ```R
+    # 4.B
+    x <- rchisq(100, df)
+    hist(x, freq = FALSE, xlim = c(0,31), ylim = c(0,0.2), main="Chisquare Distribution")
 
+    curve(dchisq(x, df), from = 0, to = 30, n = 100, col = "blue", lwd = 2, add = TRUE)
+    ``` 
 ### 4.C
-
+    ```R
+    # 4.C
+    rataan = df
+    varian = df * 2
+    ``` 
 ## Soal 5
 ![alt text](https://github.com/Chroax/P1_Probstat_E_5025201184/blob/main/soal5.PNG)
 ### 5.A
-
+    ```R
+    # A.A
+    x = 3
+    exp = dexp(x, rate = 1, log = FALSE)
+    ``` 
 ### 5.B
-
+    ```R
+    # 5.B
+    par(mfrow = c(2,2))
+    set.seed(1)
+    hist(rexp(10, x), main = "Exponential Distribution")
+    hist(rexp(100,x), main = "Exponential Distribution")
+    hist(rexp(1000, x), main = "Exponential Distribution")
+    hist(rexp(10000,x), main = "Exponential Distribution")
+    ``` 
 ### 5.C
-
+    ```R
+    # 5.A
+    simnum <- 100
+    n = 100
+    simdata <- matrix(rexp(simnum * n, x), simnum)
+    sim_rowmean <- apply(simdata, 1, mean)
+    sim_var <- var(sim_rowmean)
+    ``` 
 ## Soal 6
 ![alt text](https://github.com/Chroax/P1_Probstat_E_5025201184/blob/main/soal6.PNG)
