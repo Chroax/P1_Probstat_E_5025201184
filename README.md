@@ -214,3 +214,47 @@ Pengerjaan Praktikum - 1 Probabilitas dan Statistika
     
 ## Soal 6
 ![alt text](https://github.com/Chroax/P1_Probstat_E_5025201184/blob/main/soal6.PNG)
+> Diketahui generate random nilai sebanyak 100 data, mean = 50, sd = 8.
+### 6.A
+- Fungsi Probabilitas dari Distribusi Normal P(X1 ≤ x ≤ X2), hitung Z-Score Nya dan plot
+  data generate randomnya dalam bentuk grafik. Petunjuk(gunakan fungsi plot()).
+  Keterangan :
+  X1 = Dibawah rata-rata
+  X2 = Diatas rata-rata
+  Contoh data : 1,2,4,2,6,3,10,11,5,3,6,8
+  rata-rata = 5.083333
+  X1 = 5
+  X2 = 6
+  
+    ```R
+    # 6.A
+    n <- 100
+    m <- 50
+    std.deviasi <- 8
+    set.seed(100)
+    random <- rnorm(100)
+    rata.rata <- mean(random)
+    x1 <- floor(rata.rata)
+    x2 <- ceiling(rata.rata)
+
+    z1 <- (x1 - m) / std.deviasi
+    z2 <- (x2 - m) / std.deviasi
+
+    rnorm(n = 100, mean = m, sd = std.deviasi)
+    plot(rnorm(n = 100, mean = m, sd = std.deviasi))
+    ``` 
+### 6.B
+- Generate Histogram dari Distribusi Normal dengan breaks 50 dan format penamaan: NRP_Nama_Probstat_{Nama Kelas}_DNhistogram
+
+    ```R
+    # 6.B
+    hist(rnorm(n = 100, mean = m, sd = std.deviasi), xlab="x", ylab="y" ,breaks = 50,
+         main = "5025201184_Cahyadi_Probstat_E_Histogram")
+    ``` 
+### 6.C
+- Nilai Varian (σ²) dari hasil generate random nilai Distribusi Normal.
+
+    ```R
+    # 6.C
+    varians <- std.deviasi ** 2
+    ``` 
