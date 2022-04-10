@@ -62,11 +62,32 @@ Untuk mendapatkan nilai rataan menggunakan formula banyak data dikali dengan pel
 ## Soal 2
 ![alt text](https://github.com/Chroax/P1_Probstat_E_5025201184/blob/main/soal2.PNG)
 ### 2.A
-
+ - Peluang terdapat 4 pasien yang sembuh.
+    Penyelesaian dilakukan dengan menggunakan distribusi binomial dengan bantuan fungsi dbinom(). Dari fungsi tersebut, didapatkan hasil sebagai berikut, yaitu peluang sebesar 0.218199401946101.
+    ```R
+   # 2.A
+   probabilitas = 0.2
+   nS = 20
+   nA = 4
+   peluang = dbinom(nA, nS, probabilitas)
+    ```    
 ### 2.B
-
+ - Gambarkan grafik histogram berdasarkan kasus tersebut.
+     Berikut Fungsi untuk membuat grafik histogram dengan menggunakan hist().
+   ```R
+   # 2.B
+   x = rbinom(nA, nS, probabilitas)
+   hist(x, main = "Binomial Distribution (nS = 20, p = 0.2)", xlab = "Success", ylab = "Probability")
+   ``` 
 ### 2.C
-
+ - Nilai rataan (μ) dan varian (σ²) dari Distribusi Binomial.
+Untuk mendapatkan nilai rataan menggunakan formula banyak data dikali dengan peluang kejadian. Untuk mendapatkan nilai varian menggunakan formula nilai rataan dan dikali dengan komplemen dari peluang kejadian.
+    ```R
+    # 2.C
+    rataan = nS * probabilitas
+    varian = nS * probabilitas * (1 - probabilitas)
+    ``` 
+    
 ## Soal 3
 ![alt text](https://github.com/Chroax/P1_Probstat_E_5025201184/blob/main/soal3.PNG)
 ### 3.A
